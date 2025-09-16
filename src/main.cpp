@@ -2,8 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <Keypad.h>
 #include <Wire.h>
-// put function declarations here:
-//int myFunction(int, int);
+
 bool handleInput();
 
 
@@ -44,11 +43,6 @@ void setup() {
   lcd.backlight();
   lcd.init();
 
-  // put your setup code here, to run once:
-//  int result = myFunction(2, 3);
-
-
-
   pinMode(red, 1);
   pinMode(yellow,1);
   pinMode(green,1);
@@ -72,17 +66,7 @@ void loop() {
   Serial.println("test");
 
   lcd.setCursor(0,0);
-// lcd.print("Hello");
-
-//  char a =   keypad.getKey();
-//  if(a){
-//   lcd.clear();
-//   lcd.print(a);
-//  }
    delay(100);
-
-  // put your main code here, to run repeatedly:
-
   switch(state){
     case 0 : {
 
@@ -271,18 +255,6 @@ void loop() {
       }
     }
  
-
-//   }
-// }
-
-
-
-
-
-
-
-
-
 bool  handleInput(){
    char inputChar  =  keypad.getKey();
        if (inputChar) {
@@ -294,8 +266,6 @@ bool  handleInput(){
           lcd.print(hiddenString);
           lcd.setCursor(0,1);
           lcd.print(newstring);
-          
-
         }
        else  if(inputChar=='E'){
         if (newstring.equals(code)){
@@ -320,10 +290,7 @@ bool  handleInput(){
 
  
         }
-
-       
           }
-        
         else{
           newstring+=inputChar;
           //lcd.setCursor(cursor2,1);
@@ -334,7 +301,5 @@ bool  handleInput(){
         }
         return false;
        }
-       
-      }
 
-//}
+      }
